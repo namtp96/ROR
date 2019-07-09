@@ -1,0 +1,18 @@
+{
+  "name": "ror",
+  "version": "1.0.0",
+  "description": "ror server",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^3.2.7",
+    "mongoose": "^5.6.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "bcms",
+  "license": "ISC"
+}
