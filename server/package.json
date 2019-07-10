@@ -4,6 +4,7 @@
   "description": "ror server",
   "main": "index.js",
   "dependencies": {
+    "bcrypt": "^3.0.6",
     "express": "^4.17.1",
     "mongodb": "^3.2.7",
     "mongoose": "^5.6.4"
