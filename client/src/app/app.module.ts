@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BookComponent } from './book/book.component';
 import { GetGitlabUsersComponent } from './get-gitlab-users/get-gitlab-users.component';
+import { GetBookComponent } from './get-book/get-book.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BookComponent,
-    GetGitlabUsersComponent
+    GetGitlabUsersComponent,
+    GetBookComponent
   ],
   imports: [
     BrowserModule,

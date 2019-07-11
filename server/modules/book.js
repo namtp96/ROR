@@ -4,53 +4,53 @@ const mongoose = require('mongoose')
 const Book = new Schema ({
     title: { 
         type: String,
-        minlength: [2, 'Title so short'],
-        maxlength: [40, 'Title so long'], 
-        required: [true, 'why not title?']
+        minlength: [1, 'Title so short'],
+        maxlength: [100, 'Title so long'], 
+        required: [true, 'missing title']
     },
     price: {
         type: Schema.Types.Decimal128,
-        default: 0.00
+        required: [true, 'missing price']
     },
     rating: {
-        type: Number,
-        default: 0
+        type: Schema.Types.Decimal128,
+        default: 0.0
     },
     author: { 
-        type: String, 
-        default: 'unknow' 
+        type: String,
+        required: [true, 'missing author']
     },
     publisher: { 
-        type: String, 
-        default: 'unknow' 
+        type: String,
+        required: [true, 'missing publisher']
     },
     published: {
         type: Date,
-        default: Date.now
+        required: [true, 'missing published']
     },
     pages: { 
-        type: Number, 
-        default: '0' 
+        type: Number,
+        required: [true, 'missing pages']
     },
     language: { 
-        type: String, 
-        default: 'unknow' 
+        type: String,
+        required: [true, 'missing language']
     },
     format: { 
-        type: String, 
-        default: 'unknow' 
+        type: String,
+        required: [true, 'missing format']
     },
     isbn10: { 
         type: Number, 
         minlength: [10, 'ISBN10 is not correct'],
         maxlength: [10, 'ISBN10 is not correct'],
-        default: 0 
+        required: [true, 'missing ISBN-10']
     },
     isbn13: { 
         type: Number,
         minlength: [13, 'ISBN13 is not correct'],
-        maxlength: [13, 'ISBN13 is not correct'], 
-        default: 0 
+        maxlength: [13, 'ISBN13 is not correct'],
+        required: [true, 'missing ISBN-13']
     }
 })
 

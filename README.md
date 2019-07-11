@@ -1,3 +1,2 @@
-# ROR
+# ROR - republic of readers
 
-# /^[a-zA-Z]+$/ will match latin characters
