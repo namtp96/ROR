@@ -13,7 +13,7 @@ exports.createBook = (req, res) => {
 }
 
 exports.getBooks = (req, res) => {
-    let data = db.find({}).limit(9)
+    let data = db.find({}).sort({published: -1}).limit(9)
     data.toArray().then(data => res.status(200).send(data))
 }
 
