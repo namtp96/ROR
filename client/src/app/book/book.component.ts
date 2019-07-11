@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder,FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http'
 
 import { Book } from './book.module';
 
@@ -14,26 +15,28 @@ export class BookComponent implements OnInit {
   bookForm: FormGroup;
 
   bookValidate = [
-    {name: 'title', type: 'text', validate: {required: 'required', minl: 2, maxl: 40}},
-    {name: 'price', type: 'number', validate: {required: false, minl: 1, maxl: 15}},
-    {name: 'rating', type: 'select', validate: {required: 'required', minl: 0, maxl: 5}},
-    {name: 'author', type: 'text', validate: {required: false, minl: 2, maxl: 40}},
-    {name: 'publisher', type: 'text', validate: {required: 'required', minl: 2, maxl: 40}},
-    {name: 'published', type: 'text', validate: {required: 'required', minl: 2, maxl: 40}},
-    {name: 'pages', type: 'number', validate: {required: 'required', minl: 1, maxl: 6}},
-    {name: 'language', type: 'text', validate: {required: 'required', minl: 2, maxl: 40}},
-    {name: 'format', type: 'text', validate: {required: 'required', minl: 1, maxl: 40}},
-    {name: 'isbn10', type: 'text', validate: {required: 'required', minl: 10, maxl: 10}},
-    {name: 'isbn13', type: 'text', validate: {required: 'required', minl: 13, maxl: 13}}
+    { name: 'title', type: 'text', validate: { required: 'required', minl: 2, maxl: 40 } },
+    { name: 'price', type: 'number', validate: { required: false, minl: 1, maxl: 15 } },
+    { name: 'rating', type: 'select', validate: { required: 'required', minl: 0, maxl: 5 } },
+    { name: 'author', type: 'text', validate: { required: false, minl: 2, maxl: 40 } },
+    { name: 'publisher', type: 'text', validate: { required: 'required', minl: 2, maxl: 40 } },
+    { name: 'published', type: 'text', validate: { required: 'required', minl: 2, maxl: 40 } },
+    { name: 'pages', type: 'number', validate: { required: 'required', minl: 1, maxl: 6 } },
+    { name: 'language', type: 'text', validate: { required: 'required', minl: 2, maxl: 40 } },
+    { name: 'format', type: 'text', validate: { required: 'required', minl: 1, maxl: 40 } },
+    { name: 'isbn10', type: 'text', validate: { required: 'required', minl: 10, maxl: 10 } },
+    { name: 'isbn13', type: 'text', validate: { required: 'required', minl: 13, maxl: 13 } }
   ]
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,
+    private http: HttpClient
+  ) { }
 
   ngOnInit() {
     this.creatForms()
   }
 
-  creatForms(){
+  creatForms() {
     this.bookForm = this.fb.group({
       title: new FormControl(this.book.title, Validators.compose([
         Validators.minLength(this.bookValidate.find(item => item.name === 'title').validate.minl),
@@ -92,7 +95,7 @@ export class BookComponent implements OnInit {
     })
   }
 
-  onSubmit(){
-    console.log(this.book)
+  onSubmit() {
+    this.http.post('http://localhost:3000/book', this.book).subscribe(res => console.log(res))
   }
 }

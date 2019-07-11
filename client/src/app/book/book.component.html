@@ -18,10 +18,10 @@
             <p *ngIf="bookForm.controls[item.name].errors.required"><span>{{ item.name }}</span> is required.</p>
             <p *ngIf="bookForm.controls[item.name].errors.minlength"><span>{{ item.name }}</span> is so short.</p>
             <p *ngIf="bookForm.controls[item.name].errors.maxlength"><span>{{ item.name }}</span> is so long.</p>
-            <p *ngIf="bookForm.controls[item.name].errors.pattern"><span>{{ item.name }}</span> only has alphabet and dots ('.')</p>
+            <p *ngIf="bookForm.controls[item.name].errors.pattern"><span>{{ item.name }}</span> only has alphabet and ('.,')</p>
           </div>
       </div>
-      <button  type="submit">Submit</button>
+      <button type="submit" [disabled]="!bookForm.valid">Submit</button>
     </form>
   </div>
 </div>
