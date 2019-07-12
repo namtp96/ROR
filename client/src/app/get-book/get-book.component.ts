@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 import {  Book } from '../book/book.module'
 
@@ -14,10 +14,7 @@ export class GetBookComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get<Book[]>('http://localhost:3000/book').subscribe(res => {
-      console.log(res)
-      this.data = res
-    })
+    this.http.get<Book[]>('http://localhost:3000/book').subscribe(res => this.data = res)
   }
 
 }
