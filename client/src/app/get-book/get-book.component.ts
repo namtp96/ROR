@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 import {  Book } from '../book/book.module'
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-get-book',
@@ -10,11 +11,18 @@ import {  Book } from '../book/book.module'
 })
 export class GetBookComponent implements OnInit {
   data: Book[]
+  searchForm: FormGroup
 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get<Book[]>('http://localhost:3000/book').subscribe(res => this.data = res)
+    this.searchForm = new FormGroup({
+      input: new FormControl('')
+    })
   }
 
+  search(val){
+    this.data = []
+    this.http.get<Book[]>('http://localhost:3000/book/search/' + val.input).subscribe(res => this.data = res)
+  }
 }

@@ -9,11 +9,11 @@ const Book = new Schema ({
         required: [true, 'missing title']
     },
     price: {
-        type: Schema.Types.Decimal128,
+        type: Number,
         required: [true, 'missing price']
     },
     rating: {
-        type: Schema.Types.Decimal128,
+        type: Number,
         default: 0.0
     },
     author: { 
@@ -25,7 +25,7 @@ const Book = new Schema ({
         required: [true, 'missing publisher']
     },
     published: {
-        type: Date,
+        type: String,
         required: [true, 'missing published']
     },
     pages: { 
@@ -55,4 +55,4 @@ const Book = new Schema ({
 })
 
 
-module.exports = mongoose.model('Book', Book, 'books')
+module.exports = mongoose.model('books', Book)

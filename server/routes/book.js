@@ -4,7 +4,7 @@ const book = require('../controllers/book')
 routes.route('/')
     .post(book.createBook)
     .get(book.getBooks)
-routes.route('/author/:author')
-    .get(book.getBooksWithAuthor)
+routes.route('/search/:title')
+    .get(book.searchBooksWithTitle)
 
 module.exports = routes

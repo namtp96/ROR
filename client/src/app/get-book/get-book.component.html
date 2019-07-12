@@ -1,4 +1,8 @@
 <div class="container">
+  <form [formGroup]="searchForm">
+    Search: <input type="text" formControlName="input">
+    <button type="button" (click)="search(searchForm.value)">search</button>
+  </form>
   <div *ngIf="data ; else loading" class="content">
     <div class="row">
       <div *ngFor="let book of data; let i = index" class="book col-md-6 col-lg-4">

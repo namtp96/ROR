@@ -10,22 +10,17 @@ exports.createBook = (req, res) => {
 }
 
 exports.getBooks = (req, res) => {
-    Book.find({}).sort({ published: -1 })
-        .limit(9)
-        .toArray()
-        .then(books => {
-            res.status(200)
-                .send(books)
+    Book.find({}).limit(9)
+        .then(result => {
+            res.status(200).json(result)
         })
         .catch(err => {
-            res.status(404)
-                .send(err)
+            res.status(404).json(err)
         })
 }
 
-exports.getBooksWithAuthor = (req, res) => {
-    Book.find({author : req.params.author})
-        .toArray()
+exports.searchBooksWithTitle = (req, res) => {
+    Book.find({ title: new RegExp(req.params.title) }).sort({title : 1})
         .then(books => {
             res.status(200)
                 .send(books)
