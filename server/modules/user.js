@@ -1,17 +1,52 @@
 const mongoose = require('mongoose')
     , Schema = mongoose.Schema
 
-const User = new Schema ({
+const userSchema = new Schema({
+    gender: {
+        type: String,
+        required: [true, 'missing gender']
+    },
+    isPrime: {
+        type: String,
+        required: [true, 'missing isPrime']
+    },
+    email: {
+        type: String,
+        required: [true, 'missing email']
+    },
+    phone: {
+        type: String,
+        required: [true, 'missing phone']
+    },
+    address: {
+        type: String,
+        required: [true, 'missing address']
+    },
+    books: {
+        type: [String]
+    },
     name: {
         type: String,
         minlength: [4, 'name to short'],
-        maxlength: [16, 'name to long'],
+        maxlength: [50, 'name to long'],
         required: [true, 'missing name']
     },
-    password: {
+    picture: {
         type: String,
-        required: [true, 'missing password']
+        required: [true, 'missing picture']
+    },
+    age: {
+        type: Number,
+        required: [true, 'missing age']
+    },  
+    balance: {
+        type: Number,
+        required: [true, 'missing balance']
+    },
+    hash: {
+        type: String,
+        required: [true, 'missing hash']
     }
 })
 
-module.exports = mongoose.model('User', User)
+module.exports = mongoose.model('users', userSchema)
