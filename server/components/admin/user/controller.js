@@ -1,4 +1,4 @@
-const User = require('../../modules/user')
+const User = require('../../models/user')
     , bookService = require('../../services/book')
     // , bcrypt = require('bcrypt')
     // , conf = require('../../conf')

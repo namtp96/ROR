@@ -4,7 +4,7 @@ const service = require('./service')
 
 exports.getManyBook = async (req, res, next) => {
     const quantity = req.params.quantity > 1 ? req.params.quantity : next(new Err('missing params', 'B01'))
-
+    
     if (quantity) {
         try {
             const books = await service.getManyBook(quantity)

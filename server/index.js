@@ -6,7 +6,7 @@ const express = require('express')
     , path = require('path')
 
 // serve static files from template
-app.use("/public",express.static(path.join(__dirname, "../public")))
+app.use('/public', express.static(path.join(__dirname, '../public')))
 
 // connect to the database
 require('./db')
@@ -18,8 +18,6 @@ app.use(express.json())
 
 // using cors middleware to enable CORS -- Cross-Origin Resource Sharing
 app.use(cors())
-
-// authencation middleware
 
 // define route
 app.use(routes)

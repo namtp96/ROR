@@ -1,10 +1,12 @@
 const routes = require('express').Router()
-    , book = require('./components/book/route')
-    , user = require('./components/user/route')
+	, public = require('./components/public') // Public for everyone.
+    , secure = require('./components/secure') // Only allow user to access.
+    , admin = require('./components/admin') // Only allow bcms admin to access.
 
 // define route from component to root
-routes.use('/book', book)
-routes.use('/user', user)
+// TODO: authentication & authorization routes.
+routes.use('/public/book', public.book)
+routes.use('/admin/user', admin.user)
 
 routes.get('/', (req, res) => res.status(200).send('Home page'))
 

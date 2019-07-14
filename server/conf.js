@@ -12,6 +12,7 @@ module.exports = {
     },
 
     //err define
+    // TODO: The error defination should be moved out of the project structure, no need to deploy server when the error msg updated.
     err: {
         B01: {
             status: 401,
