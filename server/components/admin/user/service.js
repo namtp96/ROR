@@ -7,10 +7,12 @@ exports.getUsersWithKeyWord = async (req) => {
             , val = req.val
             , id = req.id
             , query = {}
+            , sort = {}
         
         query[key] = new RegExp(val)
+        sort[key] = 1
         if(id != 0) query['_id'] = {$gt:(id)}
-        return await User.find(query).limit(10)
+        return await User.find(query).limit(10).sort(sort)
     } catch (error) {
         throw new Err(error.message, 'B01')
     }
