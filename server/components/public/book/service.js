@@ -7,4 +7,24 @@ exports.getManyBook = async (quantity) => {
     } catch (error) {
         throw new Err(error.message, 'B02')
     }
-}
+};
+exports.createBook = async (req, res) => {
+    try {
+        const book = new Book(req.body);
+        book.save();
+    } catch (error) {
+        throw new Err(error.message, 'B02');
+    }
+};
+exports.searchBook = async (req) => {
+    const id = req.body.id;
+    try {
+        if (!id) {
+            return Book.find().limit(2);
+        } else {
+            return Book.find({'_id':{$gt: id }}).limit(2);
+        }
+    } catch (error) {
+        throw new Err(error.message, 'B02');
+    }
+};

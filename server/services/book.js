@@ -7,4 +7,4 @@ exports.getOneBook = async () => {
     } catch (error) {
         throw new Err(error.message, 'B02')
     }
-}
+};

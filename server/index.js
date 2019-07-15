@@ -10,7 +10,7 @@ const express = require('express')
 app.use('/public', express.static(path.join(__dirname, '../public')))
 
 // connect to the database
-require('./db')
+require('./db');
 
 // parser incoming request with urlencoded, json payload -- is based on body-parser
 // urlencoded option: extended - false to using querystring library, true to using qs library

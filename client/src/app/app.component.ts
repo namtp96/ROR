@@ -17,11 +17,13 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.http.get('http://localhost:3002/admin/user/getUser/name/a/' + this.lastID).subscribe(res => {
-      if (res.length > 0) {
+      if (res[0]) {
         this.data = res
         this.load = true
         this.lastID = this.data[this.data.length - 1]._id
-      } else this.load = false
+      } else {
+        this.load = false
+      }
     })
   }
 
@@ -31,7 +33,7 @@ export class AppComponent implements OnInit {
         this.load = false
         this.http.get('http://localhost:3002/admin/user/getUser/name/a/' + this.lastID).subscribe(res => {
           
-          if (res.length > 0) {
+          if (res[0]) {
             this.data = this.data.concat(res)
             this.load = true
   
