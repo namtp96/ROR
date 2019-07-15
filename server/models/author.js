@@ -2,8 +2,8 @@ const mongoose = require('mongoose')
     , Schema = mongoose.Schema
 
 const bookSchema = new Schema({
-    
 
+    id: Schema.Types.ObjectId,
     firstName: {
         type: String,
         required: [true, 'missing first name']
@@ -20,21 +20,15 @@ const bookSchema = new Schema({
         type: String,
         required:[true, 'missing  place of birth']
     },
-    
-    biography:{
-        type: String,
-        required:[true, 'missing biography']
-    },
-    status:{
-        type: String,
-        required:[true, 'missing status']
-    },
+
+    biography: String,
+    status: Boolean,
     createdAt: {
-        type: Date, 
+        type: Date,
         default: Date.now
     },
     updatedAt: {
-        type: Date, 
+        type: Date,
         default: Date.now
     }
 })

@@ -2,10 +2,16 @@ const mongoose = require('mongoose')
     , Schema = mongoose.Schema
 
 const bookSchema = new Schema({
-    
 
-    site: String,
-    description: String,
+    id: Schema.Types.ObjectId,
+    site: {
+        type: String,
+        required:[true,'missing site']
+    },
+    link : {
+        type: String,
+        required: [true, 'missing link']
+    },
     status:{
         type: Boolean
     },

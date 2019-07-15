@@ -4,19 +4,16 @@ const mongoose = require('mongoose')
 const bookSchema = new Schema({
 
     id: Schema.Types.ObjectId,
-    name: {
-        type: String,
-        required: [true, 'missing name']
-    },
-    
+    tagId: Schema.Types.ObjectId,
+    bookId:[[Schema.Types.ObjectId]],
     createdAt: {
-        type: Date, 
+        type: Date,
         default: Date.now
     },
     updatedAt: {
-        type: Date, 
+        type: Date,
         default: Date.now
     }
 })
 
-module.exports = mongoose.model('tags', bookSchema)
+module.exports = mongoose.model('tag_books', bookSchema)

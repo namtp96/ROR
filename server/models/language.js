@@ -2,10 +2,11 @@ const mongoose = require('mongoose')
     , Schema = mongoose.Schema
 
 const bookSchema = new Schema({
-    
-    name: {
+
+    id: Schema.Types.ObjectId,
+    language: {
         type: String,
-        required: [true, 'missing name']
+        required: [true, 'missing language']
     },
     country: {
         type: String,

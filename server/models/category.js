@@ -2,8 +2,8 @@ const mongoose = require('mongoose')
     , Schema = mongoose.Schema
 
 const bookSchema = new Schema({
-    
 
+    id: Schema.Types.ObjectId,
     name: {
         type: String,
         required: [true, 'missing name']

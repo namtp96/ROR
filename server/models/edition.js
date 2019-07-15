@@ -2,6 +2,8 @@ const mongoose = require('mongoose')
     , Schema = mongoose.Schema
 
 const bookSchema = new Schema({
+
+    id: Schema.Types.ObjectId,
     edition: {
         type: String,
         required: [true, 'missing edition']
