@@ -1,4 +1,5 @@
 const Book = require('../models/book')
+    , Err = require('../services/err')
 
 exports.getOneBook = async () => {
     try {

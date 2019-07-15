@@ -4,6 +4,7 @@ const express = require('express')
     , conf = require('./conf')
     , routes = require('./routes')
     , path = require('path')
+    , Err = require('./services/err')
 
 // serve static files from template
 app.use('/public', express.static(path.join(__dirname, '../public')))
@@ -24,8 +25,12 @@ app.use(routes)
 
 // response error
 app.use((err, req, res, next) => {
-    const errs = err.getErr()
-    res.status(errs.status).send(errs.msg)
+    if (err instanceof Err) {
+        const errs = err.getErr()
+        res.status(errs.status).send(errs.msg)
+    } else {
+        console.log(err)
+    }
 })
 
 app.listen(conf.port, () => console.log(`server listening on port: ${conf.port}`))

@@ -1,6 +1,6 @@
 const routes = require('express').Router()
 	, public = require('./components/public') // Public for everyone.
-    , secure = require('./components/secure') // Only allow user to access.
+    //, secure = require('./components/secure') // Only allow user to access.
     , admin = require('./components/admin') // Only allow bcms admin to access.
 
 // define route from component to root

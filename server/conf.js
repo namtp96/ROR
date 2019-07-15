@@ -14,6 +14,10 @@ module.exports = {
     //err define
     // TODO: The error defination should be moved out of the project structure, no need to deploy server when the error msg updated.
     err: {
+        A01: {
+            status: 403,
+            msg: 'permission denied'
+        },
         B01: {
             status: 401,
             msg: 'Get some error in get book process! Contact to admin for resolve.'

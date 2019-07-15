@@ -1,6 +1,6 @@
 const service = require('./service')
-    , bookService = require('../../services/book')
-    , Err = require('../../services/err')
+    , bookService = require('../../../services/book')
+    , Err = require('../../../services/err')
 
 exports.getManyBook = async (req, res, next) => {
     const quantity = req.params.quantity > 1 ? req.params.quantity : next(new Err('missing params', 'B01'))

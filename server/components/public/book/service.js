@@ -1,5 +1,5 @@
-const Book = require('../../models/book')
-    , Err = require('../../services/err')
+const Book = require('../../../models/book')
+    , Err = require('../../../services/err')
 
 exports.getManyBook = async (quantity) => {
     try {
