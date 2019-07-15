@@ -8,23 +8,23 @@ const bookSchema = new Schema({
         maxlength: [100, 'Title so long'],
         required: [true, 'missing title']
     },
-    price: {
-        type: Number,
-        required: [true, 'missing price']
-    },
-    rating: {
-        type: Number,
-        default: 0.0
-    },
-    author: {
+    content: {
         type: String,
-        required: [true, 'missing author']
+        required: [true, 'missing content']
     },
-    publisher: {
+    excerpt: {
         type: String,
-        required: [true, 'missing publisher']
+        required: [true, 'missing excerpt']
     },
-    published: {
+    date: {
+        type: Date,
+        required: [true, 'missing date']
+    },
+    postType: {
+        type: String,
+        required: [true, 'missing post type']
+    },
+    permalink: {
         type: Date,
         required: [true, 'missing published']
     },
