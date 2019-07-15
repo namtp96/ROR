@@ -8,49 +8,41 @@ const bookSchema = new Schema({
         maxlength: [100, 'Title so long'],
         required: [true, 'missing title']
     },
-    content: {
-        type: String,
-        required: [true, 'missing content']
+    content: String,
+    productionDate:String,
+    languageIds:[
+            [String]
+            
+    ],
+    editionIds:[
+        [String]
+    ],
+    authorIds:[
+        [String]
+    ],
+    categoryIds:[
+        [String]
+    ],
+    isActivated:{
+        type: Boolean,
+        
     },
-    excerpt: {
-        type: String,
-        required: [true, 'missing excerpt']
+    isPublish :{
+        type: Boolean
+        
     },
-    date: {
-        type: Date,
-        required: [true, 'missing date']
+    key: Schema.Types.ObjectId,
+    method: String,
+    sourceIds:[String],
+    image:String,
+    price:Number,
+    createdAt: {
+        type: Date, 
+        default: Date.now
     },
-    postType: {
-        type: String,
-        required: [true, 'missing post type']
-    },
-    permalink: {
-        type: Date,
-        required: [true, 'missing published']
-    },
-    pages: {
-        type: Number,
-        required: [true, 'missing pages']
-    },
-    language: {
-        type: String,
-        required: [true, 'missing language']
-    },
-    format: {
-        type: String,
-        required: [true, 'missing format']
-    },
-    isbn10: {
-        type: Number,
-        minlength: [10, 'ISBN10 is not correct'],
-        maxlength: [10, 'ISBN10 is not correct'],
-        required: [true, 'missing ISBN-10']
-    },
-    isbn13: {
-        type: Number,
-        minlength: [13, 'ISBN13 is not correct'],
-        maxlength: [13, 'ISBN13 is not correct'],
-        required: [true, 'missing ISBN-13']
+    updatedAt: {
+        type: Date, 
+        default: Date.now
     }
 })
 

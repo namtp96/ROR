@@ -13,8 +13,7 @@ const bookSchema = new Schema({
         required:[true, 'missing description']
     },
     status:{
-        type: Number,
-        default :0,
+        type: Boolean,
     },
     
     createdAt: {
