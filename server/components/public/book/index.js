@@ -11,5 +11,7 @@ routes.route('/create/')
     .post(ctrl.createBook);
 routes.route('/search')
     .post(ctrl.searchBooks);
+routes.route('/all')
+	.post(ctrl.getBookAll);
 
 module.exports = routes;

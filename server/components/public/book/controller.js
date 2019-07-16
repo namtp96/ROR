@@ -36,11 +36,17 @@ exports.createBook = async (req, res, next) => {
 exports.searchBooks = async (req, res, next) => {
     try {
         const searchBook = await service.searchBook(req);
-        res.status(200).send({
-            message: "OK",
-            data: searchBook
-        })
+        res.json(searchBook);
     }catch (error) {
         next(new Err(error.message, 'B01'));
     }
 };
+
+exports.getBookAll = async (req, res, next) => {
+    try {
+        const books = await service.findAll(req);
+        res.status(200).json(books);
+    }catch (error) {
+        next(new Err(error.message, 'B01'));
+    }
+}

@@ -1,0 +1,19 @@
+<div class="container">
+  <button class="btn btn-primary" [routerLink]="['/home/page']">List Book</button>
+  <div>
+    <ul id="listBook">
+      <li *ngFor="let book of books" class="item" style="width: auto; height: auto; background: beige; margin-bottom: 10px">
+        <div class="row">
+          <div class="col-sm-4">
+            <img src="{{book.bi_cover}}">
+          </div>
+          <div class="col-sm-8">
+            <p>{{book.title}}</p>
+            <p>{{book.content}}</p>
+            <p>{{book.Excerpt}}</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
