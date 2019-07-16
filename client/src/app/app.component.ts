@@ -16,30 +16,30 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.http.get('http://localhost:3002/admin/user/getUser/name/a/' + this.lastID).subscribe(res => {
-      if (res.length > 0) {
-        this.data = res
-        this.load = true
-        this.lastID = this.data[this.data.length - 1]._id
-      } else this.load = false
-    })
+    // this.http.get('http://localhost:3002/admin/user/getUser/name/a/' + this.lastID).subscribe(res => {
+    //   if (res.length > 0) {
+    //     this.data = res
+    //     this.load = true
+    //     this.lastID = this.data[this.data.length - 1]._id
+    //   } else this.load = false
+    // })
   }
 
-  @HostListener('window:scroll', ['$event']) onScroll(event) {
-    if (this.load) {
-      if (document.scrollingElement.scrollTop + window.innerHeight >= document.getElementById('listUsers').lastElementChild.offsetTop) {
-        this.load = false
-        this.http.get('http://localhost:3002/admin/user/getUser/name/a/' + this.lastID).subscribe(res => {
+//   @HostListener('window:scroll', ['$event']) onScroll(event) {
+//     if (this.load) {
+//       if (document.scrollingElement.scrollTop + window.innerHeight >= document.getElementById('listUsers').lastElementChild.offsetTop) {
+//         this.load = false
+//         this.http.get('http://localhost:3002/admin/user/getUser/name/a/' + this.lastID).subscribe(res => {
           
-          if (res.length > 0) {
-            this.data = this.data.concat(res)
-            this.load = true
+//           if (res.length > 0) {
+//             this.data = this.data.concat(res)
+//             this.load = true
   
-            this.lastID = this.data[this.data.length - 1]._id
-            console.log(this.data)
-          } else this.load = false
-        })
-      }
-    }
-  }
+//             this.lastID = this.data[this.data.length - 1]._id
+//             console.log(this.data)
+//           } else this.load = false
+//         })
+//       }
+//     }
+//   }
 }

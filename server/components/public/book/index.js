@@ -1,11 +1,16 @@
 const ctrl = require('./controller')
     , routes = require('express').Router()
-    
+
 routes.route('/')
     .get((req, res) => res.status(200).send('Book page'))
-routes.route('/get')
-    .get(ctrl.getOneBook)
-routes.route('/get/:quantity')
-    .get(ctrl.getManyBook)
-
+// routes.route('/get')
+//     .get(ctrl.getOneBook)
+// routes.route('/get/:quantity')
+//     .get(ctrl.getManyBook)
+routes.route("/gettag")
+    .get(ctrl.getTagBookByName)
+routes.route("/getauthor")
+    .get(ctrl.getAuthorByName)
+routes.route("/getcategories")
+    .get(ctrl.getCategoriesByName)
 module.exports = routes

@@ -1,1 +1,5 @@
-<p *ngIf="tag | async ">{{tag}}</p>
+  <input type="text" [(ngModel)]="tag" (keyup.enter) ="onSumit()">
+  <p>{{tag}}</p>
+  <p *ngIf="listTag" >
+    <ng-template *ngFor = "let i of listTag">{{i.id}}</ng-template>  
+  </p>
